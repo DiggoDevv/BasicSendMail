@@ -38,8 +38,32 @@ public class FormScanner{
         System.out.println("PHP");
         frontSKillsList.add(scanner.nextDouble());
 
+        for (double nota : backSkillsList) {
+            if (nota >= 7.0) {
+                backEnd = true;
+                break;
+            }
+        }
+        for(double nota : frontSKillsList){
+            if(nota >= 7.0){
+                frontEnd = true;
+                break;
+            }
+        }
+//        if(frontEnd && backEnd){
+//            fullstack = true;
+//        }
 
-        scanner.close();
+        if (backEnd) {
+            System.out.println("Parabens voce foi classificado como desenvolvedor back-end");
+        } else if (frontEnd) {
+            System.out.println("Parabens voce foi classificado como desenvolvedor front-end");
+        } else if (backEnd && frontEnd) {
+            System.out.println("Parabens voce foi classificado como desenvolvedor fullstack");
+        } else {
+            System.out.println("Infelizmente voce não atingiu a nota para classificação :(");
+        }
+
 //        if (backSkillsList.) {
 //            System.out.println("Parabéns, " + nome + "! Você foi certificado como desenvolvedor back-end.");
 //        } else if (notaVue > 7 && notaJavaScript > 7 && notaPHP > 7) {
