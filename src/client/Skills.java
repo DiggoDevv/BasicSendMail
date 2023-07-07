@@ -1,11 +1,7 @@
-package Client;
+package client;
 
-import form.FormScanner;
-
-import java.util.ArrayList;
-
-import static Client.Pessoa.backSkillsList;
-import static Client.Pessoa.frontSKillsList;
+import static client.Client.backSkillsList;
+import static client.Client.frontSKillsList;
 
 
 public class Skills {
@@ -15,6 +11,18 @@ public class Skills {
 
     public static String resultado;
 
+    public static void calculaNota() {
+        for (double nota : backSkillsList) {
+            if (nota >= 7.0) {
+                backEnd = true;
+            }
+        }
+        for (double nota : frontSKillsList) {
+            if (nota >= 7.0) {
+                frontEnd = true;
+            }
+        }
+    }
     public static String calculaSkills() {
         if (fullstack = backEnd && frontEnd) {
             return resultado = "Parabens voce foi classificado como desenvolvedor fullstack";

@@ -1,13 +1,11 @@
 package form;
 
-import Client.Pessoa;
-import Client.Skills;
+import client.Client;
 
-import java.text.Normalizer;
 import java.util.Scanner;
-import static Client.Pessoa.*;
+import static client.Client.*;
 
-import static Client.Skills.*;
+import static client.Skills.*;
 
 
 public class FormScanner {
@@ -20,9 +18,13 @@ public class FormScanner {
 
         System.out.print("Digite o nome do candidato: ");
         name = scanner.nextLine();
+//        validateName(name);
+
+
 
         System.out.print("Digite o email do candidato: ");
         email = scanner.nextLine();
+//        validateEmail(email);
 
         System.out.println("Digite as notas nas linguagens de programação:");
         System.out.print("Java: ");
@@ -39,33 +41,16 @@ public class FormScanner {
         System.out.println("PHP");
         frontSKillsList.add(scanner.nextDouble());
 
-        for (double nota : backSkillsList) {
-            if (nota >= 7.0) {
-                backEnd = true;
-            }
-        }
-        for (double nota : frontSKillsList) {
-            if (nota >= 7.0) {
-                frontEnd = true;
-            }
-        }
-        System.out.println(backEnd);
-        System.out.println(frontEnd);
-        System.out.println(frontSKillsList);
-        System.out.println(backSkillsList);
+        calculaNota();
 
-//        if (fullstack) {
-//            resultado.append("Parabens voce foi classificado como desenvolvedor fullstack");
-//        } else if (frontEnd) {
-//            resultado.append("Parabens voce foi classificado como desenvolvedor frontEnd");
-//        } else if (backEnd) {
-//            resultado.append("Parabens voce foi classificado como desenvolvedor BackEnd");
-//        } else {
-//            resultado.append("Infelizmente voce não atingiu a nota para classificação :(");
-//        }
+//        System.out.println(backEnd);
+//        System.out.println(frontEnd);
+//        System.out.println(frontSKillsList);
+//        System.out.println(backSkillsList);
+
     }
     public static void imprimirDados(){
-        Pessoa form = new Pessoa(name, email, backSkillsList, frontSKillsList, resultado);
+        Client form = new Client(name, email, backSkillsList, frontSKillsList, resultado);
         System.out.println(form);
     }
 }
